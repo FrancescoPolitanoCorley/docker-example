@@ -1,4 +1,7 @@
 pipeline{
+    parameters {
+        string(name: 'NAME', defaultValue: 'My docker image')
+    }
     agent none
     stages{
         stage ("dependencies"){
@@ -16,7 +19,7 @@ pipeline{
                 label 'master'  
             }
             steps{
-             sh ("docker build .")
+             sh ("docker build -t ${params.NAME} .")
             }
         }
         stage ("deploy"){
