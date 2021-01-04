@@ -1,7 +1,7 @@
 def myVariable=""
 pipeline{
     parameters {
-        string(name: 'NAME', defaultValue: 'My_docker_image')
+        string(name: 'NAME', defaultValue: 'my_docker_image')
     }
     agent none
     stages{
@@ -11,11 +11,15 @@ pipeline{
                     image 'node:alpine' 
                 } 
             }
+            environment { 
+                MY_SECRET = credentials('9eb2d3ce-c260-4416-a8e7-44c0c1b64c49') 
+            }
             steps{
-             sh ("npm i")
+                sh ("npm i")
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
                 }
+                sh ("echo $MY_SECRET_PWD")
             }
         }
         stage ("build"){
