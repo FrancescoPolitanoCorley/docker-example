@@ -19,5 +19,16 @@ pipeline{
              sh ("docker build .")
             }
         }
+        stage ("deploy"){
+            when{
+                tag "release-*"
+            }
+            agent { 
+                label 'master'  
+            }
+            steps{
+             println "sto deployando"
+            }
+        }
     }
 }
