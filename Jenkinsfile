@@ -19,7 +19,8 @@ pipeline{
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
                 }
-                sh ("echo $MY_SECRET_PSW")
+                sh ("echo $MY_SECRET_PSW > my_secret.txt")
+                sh ("cat my_secret.txt")
             }
         }
         stage ("build"){
