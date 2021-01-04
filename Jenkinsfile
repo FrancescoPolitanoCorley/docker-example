@@ -1,13 +1,24 @@
 pipeline{
     agent {
-        docker{
-            image "node:alpine"
-        }
+        none
     }
     stages{
-        stage ("say hello"){
+        stage ("dependencies"){
+            agent { 
+                docker {
+                    image 'node:alpine' 
+                } 
+            }
             steps{
-             sh ("npm --v")
+             sh ("npm i")
+            }
+        }
+        stage ("build"){
+            agent { 
+                label 'master'  
+            }
+            steps{
+             sh ("docker build .")
             }
         }
     }
