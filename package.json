@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/FrancescoPolitanoCorley/docker-example/issues"
   },
-  "homepage": "https://github.com/FrancescoPolitanoCorley/docker-example#readme"
+  "homepage": "https://github.com/FrancescoPolitanoCorley/docker-example#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
