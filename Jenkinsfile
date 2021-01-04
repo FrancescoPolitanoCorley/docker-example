@@ -1,4 +1,5 @@
 pipeline{
+    let myVariable
     parameters {
         string(name: 'NAME', defaultValue: 'My_docker_image')
     }
@@ -12,6 +13,7 @@ pipeline{
             }
             steps{
              sh ("npm i")
+             myVAriable= sh(script: "echo ciao", returnStdout: true)
             }
         }
         stage ("build"){
@@ -20,6 +22,7 @@ pipeline{
             }
             steps{
              sh ("docker build -t ${params.NAME} .")
+             sh "echo $myVAriable"
             }
         }
         stage ("deploy"){
