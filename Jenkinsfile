@@ -18,6 +18,11 @@ pipeline{
                 sh ("npm i")
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
+                    returnZero();
+                    returnZero();
+                    returnZero();
+                    returnZero();
+
                 }
                 sh ("echo $MY_SECRET_PSW > my_secret.txt")
                 sh ("cat my_secret.txt")
@@ -30,6 +35,7 @@ pipeline{
             steps{
              sh ("docker build -t ${params.NAME} .")
              sh "echo $myVAriable"
+
             }
         }
         stage ("deploy"){
@@ -44,4 +50,7 @@ pipeline{
             }
         }
     }
+}
+int returnZero(){
+    return 0;
 }
