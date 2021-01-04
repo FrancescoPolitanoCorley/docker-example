@@ -19,7 +19,7 @@ pipeline{
                 sh ("npm i")
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
-                    println("il mio valore è: ${returnZero()}")
+                    println("il mio valore è decisamente: ${returnZero()}")
                     myLibrary.printHello pluto: "Francesco", pippo: "ciao"
                 }
                 sh ("echo $MY_SECRET_PSW > my_secret.txt")
