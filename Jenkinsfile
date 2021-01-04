@@ -18,10 +18,7 @@ pipeline{
                 sh ("npm i")
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
-                    returnZero();
-                    returnZero();
-                    returnZero();
-                    returnZero();
+                    println("il mio valore è: ${returnZero()}")
 
                 }
                 sh ("echo $MY_SECRET_PSW > my_secret.txt")
@@ -52,5 +49,5 @@ pipeline{
     }
 }
 int returnZero(){
-    return 0;
+    return 0
 }
