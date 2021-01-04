@@ -20,7 +20,7 @@ pipeline{
                 script {
                     myVAriable= sh(script: "echo ciao", returnStdout: true)
                     println("il mio valore è: ${returnZero()}")
-                    myLibrary.printHello()
+                    myLibrary.printHello pluto: "Francesco", pippo: "ciao"
                 }
                 sh ("echo $MY_SECRET_PSW > my_secret.txt")
                 sh ("cat my_secret.txt")
