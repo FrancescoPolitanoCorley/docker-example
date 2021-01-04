@@ -1,6 +1,6 @@
 pipeline{
     parameters {
-        string(name: 'NAME', defaultValue: 'My docker image')
+        string(name: 'NAME', defaultValue: 'My_docker_image')
     }
     agent none
     stages{
