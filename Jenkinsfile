@@ -1,5 +1,5 @@
+def myVariable=""
 pipeline{
-    let myVariable
     parameters {
         string(name: 'NAME', defaultValue: 'My_docker_image')
     }
@@ -13,7 +13,9 @@ pipeline{
             }
             steps{
              sh ("npm i")
-             myVAriable= sh(script: "echo ciao", returnStdout: true)
+                script {
+                    myVAriable= sh(script: "echo ciao", returnStdout: true)
+                }
             }
         }
         stage ("build"){
